@@ -1,0 +1,117 @@
+//-----------------------------------
+//Mixin
+//-----------------------------------
+//--------------------
+// Flipcard
+@mixin rotation_flipcard {
+    .front_card {
+        @include transform(perspective(600px) rotateY(-180deg));
+    }
+    .back_card {
+        @include transform(perspective(600px) rotateY(0));
+    }
+}
+
+@mixin flipcard( $width_card, $height_card, $color_front, $color_back, $hover: "hover") {
+    .flipcard {
+        @include wh(100%, $height_card);
+        @include position;
+        max-width: $width_card;
+        @if $hover=="hover" {
+            &:hover {
+                @include rotation_flipcard;
+            }
+        }
+        @else {
+            &.active {
+                @include rotation_flipcard;
+            }
+        }
+        .item_card {
+            @include transition(all 0.6s linear);
+            @include backface-visibility;
+            @include position(absolute);
+            @include whs(100%);
+        }
+        .front_card {
+            @include transform(perspective(600px) rotateY(0));
+            background-color: $color_front;
+        }
+        .back_card {
+            @include transform(perspective(600px) rotateY(180deg));
+            background-color: $color_back;
+        }
+    }
+}
+
+// End flipcard
+//--------------------
+// add scroll
+@mixin scroll($color: $c16) {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        @include wh(8px);
+        -webkit-appearance: none;
+        background-color: $c0;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        height: 67px;
+        background-color: $color;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+}
+
+@mixin button_1($map) {
+    $width: mapv($map, width, 172px);
+    $height: mapv($map, height, 35px);
+    $color: mapv($map, color, $c6);
+    $colorhover: mapv($map, colorhover, $c6);
+    $textcolor: mapv($map, textcolor, $c1);
+    $colordisabled: mapv($map, colordisabled, $c11);
+    $textcolordisabled: mapv($map, textcolordisabled, $c1);
+
+    @include clip-path(polygon(25% 0, 100% 0, 75% 100%, 0% 100%));
+    @include font(szrem(16));
+    @include wh($width, $height);
+    @include text(center);
+    @include no-border;
+    background-color: $color;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    color: $textcolor;
+
+    &[disabled],
+    &:disabled {
+        background-color: $colordisabled;
+        color: $textcolordisabled;
+        cursor: unset;
+
+        &:hover { background-color: $colordisabled; }
+    }
+
+    &:hover {
+        @include box-shadow(10px 10px 10px black);
+        background-color: $colorhover;
+    }
+}
+
+@mixin tooltip_restore($color) {
+    @extend %tooltip_3;
+    background-color: $color;
+    min-height: 38px;
+
+    &:before { background-color: $color; }
+
+    p { @extend %text_1; }
+}
+
+//-----------------------------------
+//End Mixin
+//-----------------------------------

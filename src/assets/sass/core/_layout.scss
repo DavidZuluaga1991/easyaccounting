@@ -1,0 +1,57 @@
+.login_layout {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: {
+        areas: "slider main";
+        columns: 1fr minmax(500px, 1fr);
+        rows: 100vh;
+    }
+
+    @include brp($b5) {
+        grid-template-areas: "main";
+        grid-template-columns: 1fr;
+        grid-template-rows: 100vh;
+    }
+
+    .slider_layout {
+        @include brp($b5) {
+            display: none;
+        }
+    }
+
+    .main_layout {
+        @include brp($b5) {
+            height: max-content;
+            min-height: 100vh;
+        }
+    }
+}
+
+.app_layout {
+    font-size: szrem(16);
+    min-height: 100vh;
+    display: grid;
+    color: $c1;
+    grid-template: {
+        rows: 80px minmax(calc(100vh - 144px), auto) 64px;
+        columns: 1fr;
+    }
+
+    .main {
+        display: grid;
+        grid-template: {
+            areas: "main_menu main_content";
+            columns: auto 1fr;
+            rows: 100%;
+        }
+
+        .content_menu {
+            grid-area: main_menu;
+        }
+
+        .container-content {
+            grid-area: main_content;
+        }
+    }
+}

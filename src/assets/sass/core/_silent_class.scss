@@ -1,0 +1,262 @@
+//-----------------------------------
+//Silent Class
+//-----------------------------------
+// %button_1 { @include button_1(()); }
+
+// %button_2 {
+//     @include font(szrem(17));
+//     @include align-self(center);
+//     @include text(center);
+//     background-color: $c0;
+//     cursor: pointer;
+//     color: $c6;
+//     margin: 0;
+// }
+
+// %input_1 {
+//     input {
+//         &[type=text],
+//         &[type=password] {
+//             @include border-radius(10px 10px 0 0);
+//             @include font(szrem(16), $f1, 300);
+//             @include position;
+//             @include wh(100%, 36px);
+//             @include autofill($c11, $c1);
+//             display: block;
+//             padding: 0 15px;
+//             background-color: $c11;
+//             color: $c1;
+//         }
+
+//         + label {
+//             @include position(absolute, 1px, 0, bottom);
+//             @include transition(all 0.2s ease-out);
+//             @include font(szrem(14));
+//             @include wh(100%, 36px);
+//             @include align-items(center);
+//             @include flex;
+//             padding-left: 25px;
+//             background-color: $c1;
+//             color: $c6;
+//         }
+
+//         &:focus + label,
+//         &:not(:placeholder-shown) + label {
+//             @include transition(all 0.2s ease-out);
+//             @include transform(translateY(-36px));
+//         }
+//     }
+// }
+
+// %title_1 {
+//     @include font(szrem(24), $f2);
+//     @include text(center);
+//     @include align-self(flex-end);
+//     color: $c6;
+//     margin: 0;
+
+//     @include brp($b5) {
+//         margin: 19px 0 46px;
+//     }
+// }
+
+// // Este es el estilo de titulos de los modulos
+// %title_2 {
+//     @include position(absolute, -82px, 0, top, right);
+//     @include font(szrem(30), $f2);
+//     color: $c1;
+// }
+
+// %tooltip_1 {
+//     @include position(absolute, 41px, 17px, bottom);
+//     z-index: 2;
+//     display: none;
+//     &.active {
+//         display: block;
+//     }
+//     .tooltip_content {
+//         @include border-radius(7px);
+//         @include position;
+//         @include wh(310px);
+//         background-color: $c12;
+//         padding: 10px 15px;
+//         font-size: szrem(12);
+//         color: $c1;
+//         @include brp($b8) {
+//             width: 280px;
+//         }
+//         &:after {
+//             @include position(absolute, -3px, 21px, bottom, right);
+//             @include transform(rotate(45deg));
+//             @include whs(14px);
+//             background-color: $c12;
+//             content: "";
+//             z-index: 2;
+//             @include brp($b8) {
+//                 right: 12px;
+//             }
+//         }
+//     }
+// }
+
+// %tooltip_2 {
+//     @include position(absolute, -34px, -91px, bottom);
+//     @include wh(175px);
+//     z-index: 2;
+//     display: none;
+//     &.active {
+//         display: block;
+//     }
+//     .tooltip_content {
+//         @include border-radius(7px);
+//         @include position;
+//         @include wh(auto);
+//         padding: 10px 0px;
+//         font-size: szrem(12);
+//         color: $c1;
+//         text-align-last: end;
+//     }
+// }
+
+// %tooltip_3 {
+//     @include position(absolute, 50%, 31px);
+//     @include transform(translate(0, -50%));
+//     @include border-radius(15px);
+//     @include wh(180px);
+//     opacity: 0;
+//     padding: 8px;
+//     z-index: 2;
+
+//     @include brp(1450) {
+//         @include transform(initial);
+//         top: initial;
+//         left: initial;
+//         bottom: 30px;
+//         right: -20px;
+//     }
+
+//     @include brp($b8) {
+//         @include transform(translate(0, -50%));
+//         bottom: initial;
+//         top: 50%;
+//         right: 31px;
+//     }
+
+//     &:before {
+//         @include transform(rotate(45deg) translate(0, -50%));
+//         @include position(absolute, 50%, -8px);
+//         @include whs(8px);
+//         content: "";
+//         z-index: 1;
+
+//         @include brp(1450) {
+//             @include transform(rotate(45deg));
+//             top: initial;
+//             left: initial;
+//             bottom: -4px;
+//             right: 23px;
+//         }
+
+//         @include brp($b8) {
+//             @include transform(rotate(45deg) translate(0, -50%));
+//             top: 50%;
+//             right: -1px;
+//         }
+//     }
+// }
+
+// %text_1 {
+//     @include position;
+//     @include font(szrem(12), $f1, normal, normal, 1.3);
+//     @include text;
+//     color: $c1;
+//     z-index: 3;
+// }
+
+// %avatar_1 {
+//     @include position(absolute, -50px, 50%);
+//     @include transform(translate(-50%, 0));
+//     @include box-shadow(0 0 15px 0 $r1);
+//     @include border-radius(50%);
+//     @include whs(95px);
+//     object-fit: cover;
+//     @include brp($b5) {
+//         @include box-shadow(0 0 5px 0 $r1);
+//         @include transform(initial);
+//         @include position(initial);
+//     }
+// }
+
+// %scroll_1 {
+//     overflow-y: auto;
+//     overflow-x: hidden;
+//     &::-webkit-scrollbar {
+//         @include wh(8px);
+//         -webkit-appearance: none;
+//         background-color: $c0;
+//     }
+//     &::-webkit-scrollbar-thumb {
+//         border-radius: 10px;
+//         height: 67px;
+//         background-color: $c16;
+//     }
+//     &::-webkit-scrollbar-track {
+//         border-radius: 10px;
+//     }
+// }
+
+// %slider_login {
+//     .slider_layout {
+//         grid-area: slider;
+
+//         .slider_container {
+//             @include position;
+//             @include whs(100%);
+//             overflow: hidden;
+
+//             &:before {
+//                 @include position(absolute);
+//                 @include whs(100%);
+//                 @include background-opacity($c2, 0.25);
+//                 content: "";
+//                 z-index: 2;
+//             }
+
+//             img {
+//                 @include animation(zoom_image_1 60s linear infinite);
+//                 @include position(absolute);
+//                 @include whs(100%);
+//                 object-fit: cover;
+//             }
+//         }
+//     }
+// }
+
+// %align_icon_content {
+//     @include center-flex-row;
+//     font-size: szrem(14);
+
+//     &:before {
+//         @include transition(background 250ms ease);
+//         @include position(initial, initial, initial);
+//         @include border-radius(50%);
+//         margin-right: 5px;
+//         content: "";
+//         background: {
+//             color: $c0;
+//             position: center;
+//             size: 65%;
+//         }
+//     }
+
+//     &:hover {
+//         &:before {
+//             @include transition(background 250ms ease);
+//             background-color: $c6;
+//         }
+//     }
+// }
+
+//-----------------------------------
+//END Silent Class
+//-----------------------------------

@@ -1,0 +1,380 @@
+//Update: 20/03/2020
+
+//-----------------------------------
+//Mixin
+//-----------------------------------
+// Vendor.
+@mixin vendor-prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+// Border Radius.
+@mixin border-radius($br) {
+  @include vendor-prefix(border-radius, $br, webkit moz ms o);
+}
+
+// Box Shadow.
+@mixin box-shadow($br: none) {
+  @include vendor-prefix(box-shadow, $br, webkit moz);
+}
+
+// Transform.
+@mixin transform($br) {
+    @include vendor-prefix(transform, $br, webkit moz ms o);
+}
+
+// Transform style.
+@mixin transform-style($br) {
+    @include vendor-prefix(transform-style, $br, webkit moz);
+}
+
+// Justify content.
+@mixin justify-content($br: flex-start) {
+    @include vendor-prefix(justify-content, $br, webkit);
+}
+
+// Justify self.
+@mixin justify-self($br: flex-start) {
+    @include vendor-prefix(justify-self, $br, webkit);
+}
+
+// Justify items.
+@mixin justify-items($br: flex-start) {
+    @include vendor-prefix(justify-items, $br, webkit);
+}
+
+// Align items.
+@mixin align-items($br: stretch) {
+    @include vendor-prefix(align-items, $br, webkit);
+}
+
+// Align self.
+@mixin align-self($br: stretch) {
+    @include vendor-prefix(align-self, $br, webkit);
+}
+
+// Flex direction.
+@mixin flex-direction($br: row) {
+    @include vendor-prefix(flex-direction, $br, webkit);
+}
+
+// Flex.
+@mixin flex {
+    @include vendor-prefix(display, flex, webkit moz ms);
+}
+
+// Transition
+@mixin transition($br) {
+    @include vendor-prefix(transition, $br, webkit moz o);
+}
+
+// Animation
+@mixin animation($br) {
+    @include vendor-prefix(animation, $br, webkit moz);
+}
+
+// User select
+@mixin user-select($br: none) {
+    @include vendor-prefix(user-select, $br, webkit moz ms);
+}
+
+//Appearance
+@mixin appearance($br: none) {
+    @include vendor-prefix(appearance, $br, webkit moz);
+}
+
+//backface-visibility
+@mixin backface-visibility($br: hidden) {
+    @include vendor-prefix(backface-visibility, $br, webkit moz);
+}
+
+//clip-path
+@mixin clip-path($br) {
+    @include vendor-prefix(clip-path, $br, webkit);
+}
+
+// autofill
+@mixin autofill($background, $color) {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus
+    {
+        @include box-shadow(inset 0 0 0 1000px $background);
+        @include transition(background-color 5000s ease-in-out 0);
+        -webkit-text-fill-color: $color;
+    }
+}
+
+// Text.
+@mixin text(
+    $aling: left,
+    $trans: none,
+    $decor: none
+) {
+    text: {
+        align      : $aling;
+        decoration : $decor;
+        transform  : $trans;
+    }
+}
+
+//Font
+@mixin font (
+    $size: 1em,
+    $family: $f1,
+    $weight: normal,
+    $style: normal,
+    $line-height: "none",
+    $variant: normal
+) {
+    font: {
+        size   : $size;
+        family : $family;
+        weight : $weight;
+        style  : $style;
+        variant: $variant
+    }
+
+    @if $line-height != "none" { line-height: $line-height; }
+}
+
+// Background.
+@mixin backgrounds(
+    $way,
+    $repeat: no-repeat,
+    $position: center,
+    $color: transparent,
+    $size: auto
+) {
+    background: {
+        image    : url($way);
+        repeat   : $repeat;
+        position : $position;
+        color    : $color;
+        size     : $size;
+    }
+}
+
+//Position
+@mixin position(
+    $position: relative,
+    $value_1: 0,
+    $value_2: 0,
+    $posit_1: top,
+    $posit_2: left
+) {
+    position : $position;
+    #{$posit_1} : $value_1;
+    #{$posit_2} : $value_2;
+}
+
+//Width Height
+@mixin wh($width: auto, $height: auto) {
+    width  : $width;
+    height : $height;
+}
+
+//Width and height equal
+@mixin whs($value_aa: auto) {
+    width  : $value_aa;
+    height : $value_aa;
+}
+
+//Include svg inline (Need gulp-postcss and postcss-inline-svg)
+@mixin icon_svg($svg, $w, $h, $fill: "none") {
+    @include position(absolute);
+    @include wh($w, $h);
+    $path_svg: $i1 +  $svg + ".svg";
+    background: {
+        @if $fill != "none" {
+            image: svg-load($path_svg, fill=$fill);
+        } @else {
+            image: svg-load($path_svg);
+        }
+        repeat: no-repeat;
+        size: 100%;
+        position: top left;
+        color: transparent;
+    };
+}
+
+//Builder linear gradients
+@mixin grad-lt($color_1, $color_2, ) {
+    background-image: linear-gradient(to right, $color_1 0, $color_2 100%);
+    filter-gradient: $color_1, $color_2, horizontal;
+}
+
+//Builder radial gradients
+@mixin grad-rc($color1, $color2) {
+    background-image: radial-gradient($color1, $color2);
+}
+
+//background opacity
+@mixin background-opacity($color: $color1, $opacity: 0.8) {
+    background-color: $color;
+    background-color: rgba($color, $opacity);
+}
+
+//Imagen remplace
+@mixin img-remplace($image, $iw, $ih) {
+    @include backgrounds($image);
+    @include wh($iw, $ih);
+    @include ht;
+}
+
+//no margins
+@mixin no-margins {
+    margin: 0;
+    margin: {
+        top    : 0;
+        bottom : 0;
+        left   : 0;
+        right  : 0;
+    }
+    padding: 0;
+    padding: {
+        top    : 0;
+        bottom : 0;
+        left   : 0;
+        right  : 0;
+    }
+}
+
+//no border
+@mixin no-border {
+    border: 0 none transparent;
+    border: {
+        top    : 0 none transparent;
+        bottom : 0 none transparent;
+        left   : 0 none transparent;
+        right  : 0 none transparent;
+    }
+}
+
+//hide text
+@mixin ht {
+    @include no-margins;
+    text-indent: -119988px;
+    overflow: hidden;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+
+//Horizontal and vertical centering
+@mixin hv-center {
+    @include position(absolute, 50%, 50%);
+    @include transform(translate(-50%, -50%));
+}
+
+//Horizontal and vertical centering with flex for column
+@mixin center-flex-column {
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-direction(column);
+    @include flex;
+}
+
+//Horizontal and vertical centering with flex for row
+@mixin center-flex-row {
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-direction;
+    @include flex;
+}
+
+//Calc
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+//Rem
+@function szrem($value_px, $base: 16) {
+    @return ($value_px  / $base) + rem;
+}
+
+// =================
+// String Replace
+// =================
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// ================
+// Font Face
+// =================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+
+    $extmods: (
+        eot: "?",
+        svg: "#" + str-replace($name, " ", "_")
+    );
+
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+// Keyframes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+//Placeholder
+@mixin placeholder {
+    &::-ms-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+    &::placeholder { @content; }
+}
+
+// Mapear listas con valor por defecto
+@function mapv($map, $key, $value) {
+    $return: $value;
+    @if map-has-key($map, $key) {
+        $return: map-get($map, $key);
+    }
+    @return $return;
+}
+//-----------------------------------
+//End Mixin
+//-----------------------------------

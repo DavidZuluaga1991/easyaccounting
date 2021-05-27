@@ -1,0 +1,53 @@
+//-----------------------------------
+//Mixin Media Queries
+//-----------------------------------
+//Width
+@mixin brp($punto, $type: max, $units: px, $means: screen){
+    //Max => hasta //min => desde
+    @if      $type == max { @media only #{$means} and (max-width: $punto + $units) { @content; }}
+    @else if $type == min { @media only #{$means} and (min-width: $punto + $units) { @content; }}
+}
+
+//Width And Portrait
+@mixin brpp($punto, $type: max, $units: px, $means: screen) {
+    //Max => hasta //min => desde
+    @if      $type == max {
+        @media only #{$means} and (max-width: $punto + $units)
+        and (orientation: portrait) { @content; }
+        }
+        @else if $type == min {
+            @media only #{$means} and (min-width: $punto + $units)
+        and (orientation: portrait) { @content; }
+    }
+}
+
+//Height
+@mixin brph($punto, $type: max, $units: px, $means: screen){
+    //Max => hasta //min => desde
+    @if      $type == max { @media only #{$means} and (max-height: $punto + $units) { @content; }}
+    @else if $type == min { @media only #{$means} and (min-height: $punto + $units) { @content; }}
+}
+
+//Width and heigh
+@mixin brpwh($puntow, $puntoh, $type: max, $units: px, $means: screen){
+    //Max => hasta //min => desde
+    @if $type == max {
+        @media only #{$means} and (max-width: $puntow + $units)
+        and (max-height: $puntoh + $units) { @content; }
+    }
+    @else if $type == min {
+        @media only #{$means} and (min-width: $puntow + $units)
+        and (min-height: $puntoh + $units) { @content; }
+    }
+    @else if $type == maxmin {
+        @media only #{$means} and (max-width: $puntow + $units)
+        and (min-height: $puntoh + $units) { @content; }
+    }
+    @else if $type == minmax {
+        @media only #{$means} and (min-width: $puntow + $units)
+        and (max-height: $puntoh + $units) { @content; }
+    }
+}
+//-----------------------------------
+//END Media Queries
+//-----------------------------------

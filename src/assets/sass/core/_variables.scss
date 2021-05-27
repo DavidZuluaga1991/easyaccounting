@@ -1,0 +1,47 @@
+//-----------------------------------
+//Variables
+//-----------------------------------
+// Colors
+$c0: transparent;
+$c1: #EDEDED; // Manual de colores
+$c2: #000;
+$c3: #393CDF;
+$c4: #5d5fe2;
+
+// Con opacidad
+$r1: rgba($c2, 0.75);
+
+// Colors list
+// $color_breadcrumbs: ($c14, $c17, $c3, $c18, $c19);
+// $color_breadcrumbs_h: ($c13, $c20, $c21, $c23, $c35);
+// $l: length($color_breadcrumbs);
+
+// Fonts
+$f1: "Roboto", "sans-serif"; // Fuente principal
+$f2: "Helvetica", "sans-serif"; // Fuente secundaria
+
+// Ruta de images
+$i1: "../icons/";
+
+// Breakpoints
+$b1: 1920;
+$b2: 1366; // Tamaño diseño desktop
+$b3: 1280;
+$b4: 1024;
+$b5: 980; // BRP para cambio a movil tablet
+$b6: 768;
+$b7: 640;
+$b8: 480; //Tamaño de diseño movil
+$b9: 320;
+
+// Time Animation
+$t1: 200ms;
+$t2: 400ms;
+$t3: 250ms;
+$t4: 500ms;
+$t5: 100ms;
+$t6: 300ms;
+
+//-----------------------------------
+//End Variables
+//-----------------------------------

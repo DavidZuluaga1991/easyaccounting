@@ -1,0 +1,76 @@
+@import "instance";
+.breadcrumb {
+    .xng-breadcrumb-list {
+        @include font(szrem(13), $f1, normal);
+        @include user-select(none);
+        @include position;
+        @include flex;
+        z-index: 6;
+        .xng-breadcrumb-item {
+            @include center-flex-row;
+            @include wh(auto, 40px);
+            @include position;
+            @include clip-path(polygon( 0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%, 13px 50%));
+            margin-left: -8px;
+            padding: 0 0 0 10px;
+            overflow: hidden;
+            cursor: pointer;
+            color: $c1;
+            @include brp($b5) {
+                @include wh(auto, 20px);
+                @include clip-path(none);
+                margin-right: 5px;
+            }
+            &:first-child {
+                @include clip-path(polygon( 0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%));
+                margin-left: 0;
+                padding: 0;
+                @include brp($b5) {
+                    @include clip-path(none);
+                }
+            }
+            &:after {
+                content: "";
+                @include brp($b5) {
+                    content: ">";
+                    margin-left: 7px;
+                }
+            }
+            @for $i from 1 to $l+1 {
+                &:nth-of-type(#{$l}n+#{$i}) {
+                    background-color: nth($color_breadcrumbs, $i);
+                    &:hover {
+                        background-color: nth($color_breadcrumbs_h, $i);
+                    }
+                    @include brp($b5) {
+                        background-color: $c0;
+                        &:hover {
+                            background-color: $c0;
+                        }
+                    }
+                }
+            }
+            .xng-breadcrumb-trail {
+                @include center-flex-column;
+                @include whs(100%);
+                padding: 0 20px 0 12px;
+                @include brp($b5) {
+                    padding: 0;
+                }
+                color: $c1;
+            }
+            .xng-breadcrumb-link {
+                @include center-flex-column;
+                @include whs(100%);
+                padding: 0 20px 0 12px;
+                @include brp($b5) {
+                    padding: 0;
+                }
+            }
+        }
+        .xng-breadcrumb-separator {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+}

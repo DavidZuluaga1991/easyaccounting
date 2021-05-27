@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/sass/core/variables";
+@import "assets/sass/core/base";
+@import "assets/sass/core/mediaqueries";
+@import "assets/sass/core/fonts";
+@import "assets/sass/core/reset";
+@import "assets/sass/core/keyframes";
+@import "assets/sass/core/layout";
+@import "assets/sass/core/mixin";
+@import "assets/sass/core/silent_class";
+
+body {
+    background-color: $c3;
+    position: relative;
+    // @include brp($b5) {
+    //     background-color: #2eec2e;
+    // }
+    // @include brp($b6) {
+    //     background-color: #2e7aec;
+    // }
+    // @include brp($b7) {
+    //     background-color: #ec9a2e;
+    // }
+    // @include brp($b8) {
+    //     background-color: #ec2e2e;
+    // }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

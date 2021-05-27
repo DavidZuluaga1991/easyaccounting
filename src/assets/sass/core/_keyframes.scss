@@ -1,0 +1,50 @@
+//-----------------------------------
+//Keyframes
+//-----------------------------------
+
+@include keyframes(zoom_image_1) {
+    0% { @include transform(scale(1) rotate(0)); }
+    50% { @include transform(scale(1.2) rotate(2deg)); }
+    51% { @include transform(scale(1.2) rotate(2deg)); }
+    99% { @include transform(scale(1) rotate(0)); }
+    100% { @include transform(scale(1) rotate(0)); }
+}
+
+@include keyframes(opacity_1) {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@include keyframes(menu_close_1) {
+    0% {
+        stroke: {
+            dashoffset: -22;
+            dasharray: 60 272;
+        }
+    }
+    100% {
+        stroke: {
+            dashoffset: -205;
+            dasharray: 55 254;
+        }
+    }
+}
+
+@include keyframes(menu_close_2) {
+    0% {
+        stroke: {
+            dashoffset: -205;
+            dasharray: 55 254;
+        }
+    }
+    100% {
+        stroke: {
+            dashoffset: -22;
+            dasharray: 60 272;
+        }
+    }
+}
+
+//-----------------------------------
+//End Keyframes
+//-----------------------------------
