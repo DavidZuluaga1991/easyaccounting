@@ -1,7 +1,7 @@
 @import "./../../../../../assets/sass/instance";
 .container {
     position: relative;
-    height: calc(100% - 80px - 150px);
+    height: calc(100% - 80px - 110px);
     .content {
         // background-color: cornflowerblue;
         height: 100%;
@@ -15,7 +15,7 @@
         .card {
             position: relative;
             width: 254px;
-            height: 50%;
+            height: 355px;
             // background-color: aquamarine;
             @include border-radius(5px);
             border: 1px $c3 solid;

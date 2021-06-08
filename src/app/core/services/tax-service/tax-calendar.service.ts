@@ -11,8 +11,9 @@ import { TaxCalendar } from '../../models/tax-calendar/tax-calendar';
 })
 export class TaxCalendarService extends BaseFirebaseService<TaxCalendar> {
 
-  constructor(protected db: AngularFireDatabase) {
+  constructor(protected db: AngularFireDatabase//, private doc: AngularFireStorage
+    ) {
     super(db);
   }
-  
+
 }
