@@ -1,0 +1,124 @@
+@import "./../../../../../assets/sass/instance";
+.content_calendar {
+    .year {
+        @include flex;
+        @include justify-content(center);
+        @include align-items(center);
+        background-color: $c3;
+        color: $c1;
+        height: 32px;
+    }
+    .mounth {
+        display: grid;
+        grid-template-columns: 50px auto 50px;
+        text-align: center;
+        border-bottom: solid 1px $c3;
+        p {
+            @include flex;
+            @include justify-content(center);
+            @include align-items(center);
+            margin: 0px;
+        }
+        .changes_mounth {
+            @include flex;
+            @include justify-content(center);
+            @include align-items(center);
+            height: 32px;
+            .mounth_icon {
+                @include flex;
+                @include align-items(center);
+                @include border-radius(50%);
+                @include justify-content(center);
+                @include whs (28px);
+                @include user-select(none);
+                cursor: pointer;
+                color: $c3;
+                &:hover {
+                    background-color: $c3;
+                    color: $c1;
+                }
+            }
+        }
+    }
+    .days {
+        // background-color: beige;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 36px);
+        .day_name {
+            @include flex;
+            @include align-items(center);
+            @include justify-content(center);
+            height: 36px;
+            color: $c3;
+            font-weight: 500;
+            border-bottom: solid 1px $c3;
+        }
+        .num_day {
+            height: 36px;
+            color: $c3;
+            font-weight: 500;
+            @include flex;
+            @include align-items(center);
+            @include justify-content(center);
+            @include border-radius(50%);
+            margin: 0px;
+            &.data {
+                // color: $c6;
+                // background-color: $r2;
+                font-weight: 700;
+                text-decoration: underline;
+            }
+            &.selectable {  
+                @include user-select(none);
+                cursor: pointer;
+                &.select,
+                &:hover {
+                    background-color: $c3;
+                    text-decoration: none;
+                    color: $c1;
+                }
+            }
+        }
+    }
+    .description {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        color: $c3;
+        height: 36px;
+        @include transition(1s);
+        background-color: $c5;
+        border-radius: 0px 0px 5px 5px;
+        &.view {
+            height: 100%;
+            border-radius: 5px;
+        }
+        .more {
+            @include flex;
+            @include align-items(center);
+            @include justify-content(center);
+            @include whs(100%);
+            cursor: pointer;
+        }
+        .info {
+            height: 100%;
+            .less {
+                height: 32px;
+                @include flex;
+                @include align-items(center);
+                @include justify-content(center);
+                cursor: pointer;
+                background-color: $c3;
+                color: $c1;
+            }
+            .content {
+                height: calc(100% - 72px);
+                padding: 20px;
+                .tittle {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

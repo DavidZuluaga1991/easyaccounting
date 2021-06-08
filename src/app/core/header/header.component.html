@@ -1,0 +1,45 @@
+<header>
+    <div class="icon_menu">
+      <mat-icon class="icon" id="icon_menu_1">menu</mat-icon>
+    </div>
+    <h1>
+      <a href="http://google.com">
+        <figure>
+          <img src="assets/images/mundo.png" alt="">
+        </figure>
+      </a>
+      <a href="">ACCEX ASOCIADOS OUTSOURCING</a>
+    </h1>
+    <nav id="menu" class="menu">
+      <div class="card_menu {{ viewMenu ? '' : 'notvisible' }}">
+        <div class="position_menu" id="position_menu">
+          <!-- <div class="icon_menu" >
+            <mat-icon class="icon menu" id="icon_menu_2">menu</mat-icon>
+          </div> -->
+          <ul>
+            <li>
+              <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Inicio</a>
+            </li>
+            <li>
+              <a href="">Contabilidad</a>
+            </li>
+            <li>
+              <a href="">Informática</a>
+            </li>
+            <li>
+              <a href="">Industrial</a>
+            </li>
+            <li>
+              <a href="">Quienes somos</a>
+            </li>
+            <li>
+              <a href="">Contacto</a>
+            </li>
+            <li>
+              <a href="">Usuarios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

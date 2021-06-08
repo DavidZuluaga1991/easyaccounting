@@ -1,0 +1,169 @@
+@import "./../../../assets/sass/instance";
+header {
+    background-color: $c3;
+    position: relative;
+    height: 80px;
+    .icon_menu {
+        display: none;
+        .icon {
+            vertical-align: middle;
+            &.menu {
+                margin-left: 16px;
+            }
+        }
+        @include brp($b6) {
+            display: inline-block;
+            cursor: pointer;
+            line-height: 80px;
+            margin-left: 30px;
+        }
+    }
+    h1 {
+        display: inline-block;
+        @include wh(22%, 80px);
+        min-width: 200px;
+        margin: 0px;
+        margin-left: 50px;
+        line-height: 80px;
+        font-size: 18px;
+        & > * {
+            display: inline-block;
+            vertical-align: middle;
+            text-decoration: none;
+            color: $c1;
+            font-size: 0.8em;
+            margin: 0px 3px;
+        }
+        figure {
+            @include whs(60px);
+            margin: 0px;
+            img {
+                @include wh(100%);
+            }
+        }
+        @include brp($b2) {
+            width: 28%;
+        }
+        @include brp($b5) {
+            @include wh(35%, 80px);
+            min-width: 72px;
+        }
+        @include brp($b6) {
+            @include wh(74%, 80px);
+            min-width: 72px;
+            // background-color: crimson;
+        }
+    }
+    nav {
+        .card_menu {
+            .position_menu {
+                // display: inline-block;
+                ul {
+                    margin: 0px;
+                    li {
+                        list-style: none;
+                        font-size: szrem(14);
+                        a {
+                            text-decoration: none;
+                            color: $c1;
+                            font-weight: 500;
+                            &:hover {
+                                color: $c1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include brp($b1) {
+            // background-color: crimson;
+            display: inline-block;
+            // vertical-align: middle;
+            position: absolute;
+            height: 100%;
+            width: 72%;
+            .card_menu {
+                position: relative;
+                width: 100%;
+                display: inline-block;
+                line-height: 80px;
+                text-align: end;
+                .position_menu {
+                    ul {
+                        margin: 0px;
+                        padding: 0px;
+                        li {
+                            display: inline-block;
+                            text-align: center;
+                            min-width: 87px;
+                        }
+                    }
+                }
+            }
+        }
+        @include brp($b2) {
+            width: 66%;
+        }
+        @include brp($b5) {
+            width: 58%;
+            .card_menu {
+                .position_menu {
+                    ul {
+                        li {
+                            font-size: szrem(12);
+                            min-width: 73px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include brp($b6) {
+            height: 25px;
+            // width: 120px;
+            width: 0%;
+            cursor: pointer;
+            margin: 0px 0px 0px 10px;
+            padding-top: 5px;
+            line-height: 40px;
+            .card_menu {
+                @include whs(100%);
+                display: inline-block;
+                position: fixed;
+                z-index: 999;
+                top: 80px;
+                left: 0px;
+                background-color: $r1;
+                line-height: 48px;
+                text-align: left;
+                &.notvisible {
+                    display: none;
+                }
+                .position_menu {
+                    position: relative;
+                    width: 166px;
+                    height: 100%;
+                    background-color: $c1;
+                    // top: 80px;
+                    left: 0px;
+                    border-right: 3px solid cadetblue;
+                    padding-bottom: 50px;
+                    ul {
+                        padding-left: 40px;
+                        li {
+                            display: block;
+                            text-align: left;
+                            a {
+                                color: $c3;
+                                font-weight: 500;
+                                &:hover {
+                                    color: $c4;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

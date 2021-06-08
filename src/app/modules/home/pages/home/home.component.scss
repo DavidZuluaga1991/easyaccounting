@@ -1,0 +1,24 @@
+@import "./../../../../../assets/sass/instance";
+.container {
+    position: relative;
+    height: calc(100% - 80px - 150px);
+    .content {
+        // background-color: cornflowerblue;
+        height: 100%;
+        // line-height: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(3, 252PX);
+        gap: 15px;
+        .card {
+            position: relative;
+            width: 254px;
+            height: 50%;
+            // background-color: aquamarine;
+            @include border-radius(5px);
+            border: 1px $c3 solid;
+        }
+    }
+}
