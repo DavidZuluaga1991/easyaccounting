@@ -34,6 +34,7 @@ export class CalendarComponent implements OnInit {
         ]
     }
     // this.tax.posts(o);
+    this.tax.postFileUpload();
   }
 
   public viewCallendar(date: Date) {
@@ -89,7 +90,7 @@ export class CalendarComponent implements OnInit {
     }
     this.dateInit = tempDate;
     this.viewCallendar( this.dateInit );
-    
+
     //this.getDataTaxCalendary();
   }
 
@@ -99,7 +100,7 @@ export class CalendarComponent implements OnInit {
 
 
   public getDataTaxCalendary() {
-    
+
     const filter: FilterFirebase = {
       searchdata: 'date/mounth',
       value: 1

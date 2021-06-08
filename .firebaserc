@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "access-asociados": {
+      "hosting": {
+        "easyaccounting": [
+          "access-asociados"
+        ]
+      }
+    }
+  }
+}
