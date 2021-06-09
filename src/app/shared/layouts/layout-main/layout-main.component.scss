@@ -1,6 +1,17 @@
-.container_data {
-  position: relative;
-  min-height: calc(100% - 80px - 140px);
-  margin-top: 15px;
-  margin-bottom: 15px;
+// .container_data {
+//   position: relative;
+//   min-height: calc(100% - 80px - 140px);
+//   margin-top: 15px;
+//   margin-bottom: 15px;
+// }
+.layout {
+  display: grid;
+  grid-template-rows: 80px auto 110px;
+  height: 100%;
+  .container_data {
+    // position: relative;
+    // min-height: calc(100% - 80px - 140px);
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }

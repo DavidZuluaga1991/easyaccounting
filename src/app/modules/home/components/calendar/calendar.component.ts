@@ -34,7 +34,6 @@ export class CalendarComponent implements OnInit {
         ]
     }
     // this.tax.posts(o);
-    this.tax.postFileUpload();
   }
 
   public viewCallendar(date: Date) {

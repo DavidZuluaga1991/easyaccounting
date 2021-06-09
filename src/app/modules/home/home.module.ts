@@ -5,12 +5,14 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FilesInterestComponent } from './components/files-interest/files-interest.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    CalendarComponent
+    CalendarComponent,
+    FilesInterestComponent
   ],
   imports: [
     CommonModule,

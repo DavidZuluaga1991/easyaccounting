@@ -1,0 +1,25 @@
+@import "./../../../../../assets/sass/instance";
+.content_files_interest {
+  .tittle {
+    @include flex;
+    @include justify-content(center);
+    @include align-items(center);
+    background-color: $c3;
+    color: $c1;
+    height: 32px;
+  }
+  .contents {
+    @include scroll($c3);
+    height: calc(100% - 32px);
+    width: 100%;
+    position: absolute;
+    a {
+      text-decoration: none;
+      margin-left: 15px;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      position: relative;
+      display: block;
+    }
+  }
+}
