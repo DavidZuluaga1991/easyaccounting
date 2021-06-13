@@ -89,7 +89,7 @@ export class CalendarComponent implements OnInit {
     }
     this.dateInit = tempDate;
     this.viewCallendar( this.dateInit );
-    
+
     //this.getDataTaxCalendary();
   }
 
@@ -99,7 +99,7 @@ export class CalendarComponent implements OnInit {
 
 
   public getDataTaxCalendary() {
-    
+
     const filter: FilterFirebase = {
       searchdata: 'date/mounth',
       value: 1
@@ -108,15 +108,6 @@ export class CalendarComponent implements OnInit {
     s.subscribe( (data: TaxCalendar[]) => {
       this.historyTaxCalendary = data;
       this.viewCallendar(this.dateInit);
-      // console.log(data);
-      // // data.forEach((d: TaxCalendar) => {
-      // //   this.numDays.forEach(day => {
-      // //     console.log(day, this.dateInit.getMonth() === d.date.mounth, d.date.day, day.id === d.date.day, d.description);
-      // //     if (this.dateInit.getMonth() === d.date.mounth && day.id === d.date.day) {
-      // //       day.description = d.description;
-      // //     }
-      // //   });
-      // // });
     });
   }
 

@@ -3,29 +3,45 @@ header {
     background-color: $c3;
     position: relative;
     height: 80px;
-    .icon_menu {
-        display: none;
-        .icon {
-            vertical-align: middle;
-            &.menu {
-                margin-left: 16px;
-            }
-        }
-        @include brp($b6) {
-            display: inline-block;
-            cursor: pointer;
-            line-height: 80px;
-            margin-left: 30px;
-        }
+    .menu_icon {
+      @include whs(80px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      .icon_menu {
+          @include whs(40px);
+          @include border-radius(50%);
+          .icon {
+              vertical-align: middle;
+              &.menu {
+                  margin-left: 16px;
+              }
+          }
+          // &:hover {
+          //   background-color: $c4;
+          // }
+          @include brp($b6) {
+              display: inline-block;
+              cursor: pointer;
+              line-height: 40px;
+              // padding-left: 30px;
+              // padding-right: 30px;
+          }
+      }
+
+      @include brp($b6) {
+        display: inline-flex;
+      }
     }
     h1 {
         display: inline-block;
         @include wh(22%, 80px);
         min-width: 200px;
         margin: 0px;
-        margin-left: 50px;
+        // margin-left: 50px;
         line-height: 80px;
         font-size: 18px;
+        margin-left: 18px;
         & > * {
             display: inline-block;
             vertical-align: middle;
@@ -42,16 +58,20 @@ header {
             }
         }
         @include brp($b2) {
-            width: 28%;
+            width: 30%;
         }
         @include brp($b5) {
             @include wh(35%, 80px);
             min-width: 72px;
+            margin-left: 0px;
         }
         @include brp($b6) {
             @include wh(74%, 80px);
             min-width: 72px;
             // background-color: crimson;
+            & > * {
+              font-size: 0.6em;
+            }
         }
     }
     nav {

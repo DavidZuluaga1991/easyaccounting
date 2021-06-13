@@ -1,39 +1,39 @@
 <div class="content_calendar">
-    <div class="year">{{ dateInit.getFullYear() }}</div>
-    <div class="mounth">
-        <div class="changes_mounth">
-            <div class="mounth_icon" (click)="changeMounth(-1)">
-                <mat-icon class="icon">keyboard_arrow_left</mat-icon>
-            </div>
-        </div>
-        <p>{{ textMount() }}</p>
-        <div class="changes_mounth">
-            <div class="mounth_icon" (click)="changeMounth(1)">
-                <mat-icon class="icon">keyboard_arrow_right</mat-icon>
-            </div>
-        </div>
-    </div>
-    <div class="days">
-        <div class="day_name" *ngFor="let name of dayNames" >{{ name }}</div>
-        <p class="num_day {{ num.selectable ? 'selectable' : '' }}  {{ num.selected ? 'select ' : '' }} {{ num.description && num.description.length > 0 ? 'data' : '' }}" *ngFor="let num of numDays; let i = index" (click)="viewDescription(num, i)">{{ num.text }}</p>
-        <!-- <div class="num_day {{ num.selectable ? 'selectable' : '' }}  {{ num.selected ? 'select ' : '' }} " *ngFor="let num of numDays; let i = index" (click)="viewDescription(num, i)">
-            {{ num.text }}
-        </div> -->
-    </div>
-    <div class="description {{ actionDescription ? 'view' : '' }}">
-        <div class="more" (click)="actionDescription = true" *ngIf="!actionDescription">
-            Ver eventos
-        </div>
-        <div class="info" *ngIf="actionDescription">
-            <div class="less" (click)="actionDescription = false">
-                Ver menos
-            </div>
-            <div class="content">
-                <p class="tittle">{{ dateInit | date}}</p>
-                <ul>
-                    <li *ngFor="let item of description"> {{item.text}} </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  <div class="year">Calendario tributario {{ dateInit.getFullYear() }}</div>
+  <div class="mounth">
+      <div class="changes_mounth">
+          <div class="mounth_icon" (click)="changeMounth(-1)">
+              <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+          </div>
+      </div>
+      <p>{{ textMount() }}</p>
+      <div class="changes_mounth">
+          <div class="mounth_icon" (click)="changeMounth(1)">
+              <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+          </div>
+      </div>
+  </div>
+  <div class="days">
+      <div class="day_name" *ngFor="let name of dayNames" >{{ name }}</div>
+      <p class="num_day {{ num.selectable ? 'selectable' : '' }}  {{ num.selected ? 'select ' : '' }} {{ num.description && num.description.length > 0 ? 'data' : '' }}" *ngFor="let num of numDays; let i = index" (click)="viewDescription(num, i)">{{ num.text }}</p>
+      <!-- <div class="num_day {{ num.selectable ? 'selectable' : '' }}  {{ num.selected ? 'select ' : '' }} " *ngFor="let num of numDays; let i = index" (click)="viewDescription(num, i)">
+          {{ num.text }}
+      </div> -->
+  </div>
+  <div class="description {{ actionDescription ? 'view' : '' }}">
+      <div class="more" (click)="actionDescription = true" *ngIf="!actionDescription">
+          Ver eventos
+      </div>
+      <div class="info" *ngIf="actionDescription">
+          <div class="less" (click)="actionDescription = false">
+              Ver menos
+          </div>
+          <div class="content">
+              <p class="tittle">{{ dateInit | date}}</p>
+              <ul>
+                  <li *ngFor="let item of description"> {{item.text}} </li>
+              </ul>
+          </div>
+      </div>
+  </div>
 </div>

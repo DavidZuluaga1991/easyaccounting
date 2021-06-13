@@ -69,7 +69,7 @@
                 font-weight: 700;
                 text-decoration: underline;
             }
-            &.selectable {  
+            &.selectable {
                 @include user-select(none);
                 cursor: pointer;
                 &.select,
