@@ -1,0 +1,6 @@
+<div class="content_files_interest">
+  <div class="tittle">Docs. y Archivos de Interes</div>
+  <div class="contents">
+    <a *ngFor="let item of files" [href]="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+  </div>
+</div>
